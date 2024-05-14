@@ -3,7 +3,14 @@ type LanguageType = {
     code: string;
 }
 
-export const languageData = (): LanguageType[] => [
-    {label: 'English', code: 'en'},
-    {label: 'Espanish', code: 'es'},
-]
+export const messages = {
+    en: {
+      helloMessage: 'Hello, World!',
+    },
+    es: {
+      helloMessage: '¡Hola, Mundo!',
+    },
+  };
+  
+  export default messages;
+  

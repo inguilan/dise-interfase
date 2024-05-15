@@ -11,21 +11,21 @@ import './assets/js/vendor/jquery-appear.js';
 import './assets/js/vendor/jquery-validator.js';
 import './assets/js/vendor/slick.min.js';
 
-import './App.css'; // Asegúrate de importar tus estilos CSS aquí
+import './assets/js/app.js'; // Asegúrate de importar tus estilos CSS aquí
 
 
 function Navbar() {
   return (
-    <header className="large-screens navbar-container mb-4"> {/* Agrega un margen inferior */}
-      <div className="container">
-        <nav className="navbar navbar-expand-lg navbar-blue">
-          <a className="navbar-brand" href="/"><img alt="" src="src/assets/media/icons/c-removebg-preview.png" className="logo-img" /></a>
+    <header className="large-screens navbar-container mb-4" style={{ boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)', background: 'linear-gradient(180deg, #E8F3FF 0%, #EAFFEA 100%)' }}> {/* Agrega un margen inferior, una sombra y un degradado lineal de colores */}
+      <div className="container d-flex justify-content-between align-items-center"> {/* Centra el contenido horizontalmente */}
+        <a className="navbar-brand" href="/"><img alt="" src="src/assets/media/icons/c-removebg-preview.png" className="logo-img" style={{ width: '100px', height: 'auto' }} /></a> {/* Aumenta el tamaño del logo */}
+        <nav className="navbar navbar-expand-lg">
           <div className="navbar-collapse justify-content-end">
             <ul className="navbar-nav mainmenu">
-              <li className="nav-item"><a className="nav-link" href="#services">Projects</a></li>
-              <li className="nav-item"><a className="nav-link" href="#skills">Skills</a></li>
-              <li className="nav-item"><a className="nav-link" href="#experience">Testimonials</a></li>
-              <li className="nav-item"><a className="nav-link" href="#contact">Contact me</a></li>
+              <li className="nav-item"><a className="nav-link text-black" href="#services">Projects</a></li>
+              <li className="nav-item"><a className="nav-link text-black" href="#skills">Skills</a></li>
+              <li className="nav-item"><a className="nav-link text-black" href="#experience">Testimonials</a></li>
+              <li className="nav-item"><a className="nav-link text-black" href="#contact">Contact me</a></li>
             </ul>
           </div>
         </nav>
@@ -34,9 +34,11 @@ function Navbar() {
   );
 }
 
+
+
 function MobileNavbar() {
   return (
-    <header className="small-screen">
+    <header className="small-screen" style={{ boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }}> {/* Agrega una sombra de color negro con opacidad */}
       <div className="container">
         <div className="mobile-menu">
           <a className="navbar-brand" href="/"><img alt="" src="assets/media/icons/logo_trial.png" /></a>
@@ -59,14 +61,15 @@ function MobileNavbar() {
 
 function Header() {
   return (
-    <header id="headermain" className="mb-4"> {/* Agrega un margen inferior */}
+    <header id="headermain" className="mb-4 text-center" style={{ backgroundImage: `url('src/assets/media/banner/banner.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}> {/* Agrega un margen inferior y centra el texto */}
       <div className="container">
         <div className="row headerwrap">
-          <div className="col-lg-6 d-flex align-items-center">
+          <div className="col-lg-6 align-items-center" style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap', alignContent: 'center', justifyContent: 'space-evenly', alignItems: 'center' }}>
             {/* Texto a la izquierda */}
-            <div className="headerwrap__text">
-              <h1>Tu texto aquí</h1>
-              <p>Opcional: descripción o cualquier otro texto</p>
+            <div className="headerwrap__text text-right" style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap', alignContent: 'center', justifyContent: 'space-evenly', alignItems: 'center' }}> {/* Alinea el texto a la derecha y aplica las características */}
+              <h1 style={{ fontSize: '2.5rem' }}>Luis David Inguilan Guzman</h1> {/* Aumenta el tamaño de la fuente */}
+               {/* Párrafo movido debajo del título */}
+              <p>Your trusted engineer</p>
             </div>
           </div>
           <div className="col-lg-6 d-flex justify-content-end">
@@ -89,22 +92,41 @@ function Header() {
 }
 
 
+
+
+
+
+
+
 function HeroBanner() {
+  const contactInfo = [
+    { label: 'Email', value: 'dg4834307@gmail.com' },
+    { label: 'Phone', value: '3235806283' },
+    { label: 'Address', value: '11 Street, City, Pasto' }
+  ];
+
   return (
     <section className="hero-banner bg-blue-transparent mb-4"> {/* Agrega un margen inferior aquí */}
       <div className="heading mb-48"> {/* Agrega un margen superior */}
         <div className="row">
           <div className="col-lg-12">
-            <div className="content-block bg-gradient shadow br-30 p-4 mb-48"> {/* Agrega un padding y un margen inferior */}
+            <div className="content-block bg-gradient shadow br-30 p-4 "> {/* Agrega un padding y un margen inferior */}
               <div className="row align-items-center">
                 <div className="col-lg-6">
                   <h2 className="mb-16">David Inguilán</h2>
                   <h5 className="dark-gray mb-16">"Desarrollador de software comprometido con la excelencia y la innovación."</h5>
+                  <p className="mb-0">Contact Me</p>
+                  <div className="contact-info">
+                    <p className="text-black mb-1">Email: dg4834307@gmail.com</p>
+                    <p className="text-black mb-1">Phone: 3235806283</p>
+                    <p className="text-black">Address: 11 Street, City, Pasto</p>
+                  </div>
                 </div>
                 <div className="col-lg-6">
                   <h2 className="mb-16">About Me</h2>
-                  <h5 className="dark-gray mb-4">As a dedicated software engineer, I possess a strong academic background and an insatiable thirst for learning and growth in the technology realm. My objective is to contribute to the development of robust software solutions while continuously expanding my expertise in programming.</h5>
-                  <a href="#contact" className="cus-btn primary">Contact Me</a>
+                  <h5 className="dark-gray mb-4">
+
+"As a dedicated software engineer, I possess a strong academic background and an insatiable thirst for learning and growth in the technology realm. My objective is to contribute to the development of robust software solutions while continuously expanding my expertise in programming and staying abreast of emerging technologies and industry trends."</h5>
                 </div>
               </div>
             </div>
@@ -115,13 +137,14 @@ function HeroBanner() {
   );
 }
 
+
 function Projects() {
   return (
     <section className="services p-40" id="services" style={{ padding: '0.1rem' }}>
       <div className="container">
-        <div className="heading mb-48">
+        <div className="heading ">
           <h3 className="mb-32">Projects</h3>
-          <h5>My projects</h5>
+          
         </div>
         <div className="row">
           <div className="col-lg-4">
@@ -203,71 +226,65 @@ function Skills() {
 }
 
 function Experience() {
-  return (
-    <section className="experience p-40" id="experience" style={{ padding: '0.1rem' }}>
-      <div className="container">
-        <div className="heading mb-48">
-          <h2 className="mb-32">Testimonials</h2>
-          <h5>“Testimonials from my top clients back up the quality of my best work.”</h5>
-        </div>
-        <div className="row">
-          <div className="col-lg-4 mb-4">
-            <div className="content-block bg-gradient shadow br-30 p-20">
-            <h3 className="mb-16">Sofia Pedrozo</h3>
-              <h4 className="mb-16">Secure Password Generator</h4>
-              <p>"Awesome! This password generator is easy to use and offers customizable options. I feel more secure with strong passwords for my online accounts - highly recommended!"</p>
-            </div>
-          </div>
-          <div className="col-lg-4 mb-4">
-            <div className="content-block bg-gradient shadow br-30 p-20">
-            <h3 className="mb-16">Ricardo 
-            Cardona</h3>
-              <h4 className="mb-16">Azure database-driven coffee sales website</h4>
-              <p>"Amazing shopping experience! Wide selection of quality coffee, easy navigation and delicious coffee - my favorite online coffee shopping destination!"</p>
-            </div>
-          </div>
-          <div className="col-lg-4 mb-4">
-            <div className="content-block bg-gradient shadow br-30 p-20">
-            <h3 className="mb-16">Miguelito Revelo</h3>
-              <h4 className="mb-16">Movie API using Django REST Framework</h4>
-              <p>"Excellent API! Easy to integrate, clear documentation and responsive support. A valuable tool for any app developer."</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Contact() {
-  const contactInfo = [
-    { label: 'Email', value: 'dg4834307@gmail.com' },
-    { label: 'Phone', value: '3235806283' },
-    { label: 'Address', value: '11 Street, City, Pasto' }
+  // Array de testimonios con fotos
+  const testimonials = [
+    {
+      name: "Sofia Pedrozo",
+      product: "Secure Password Generator",
+      comment: "Awesome! This password generator is easy to use and offers customizable options. I feel more secure with strong passwords for my online accounts - highly recommended!",
+      photoUrl: "src/assets/media/banner/perfil-mujer-vivo.png" // URL de la foto de Sofia Pedrozo
+    },
+    {
+      name: "Ricardo Cardona",
+      product: "Azure database-driven coffee sales website",
+      comment: "Amazing shopping experience! Wide selection of quality coffee, easy navigation and delicious coffee - my favorite online coffee shopping destination!",
+      photoUrl: "src/assets/media/banner/hombrenegro.jpg" // URL de la foto de Ricardo Cardona
+    },
+    {
+      name: "Miguelito Revelo",
+      product: "Movie API using Django REST Framework",
+      comment: "Excellent API! Easy to integrate, clear documentation and responsive support. A valuable tool for any app developer.",
+      photoUrl: "src/assets/media/banner/hombrerubio.jpg" // URL de la foto de Miguelito Revelo
+    }
   ];
 
   return (
-    <section className="contact p-20" id="contact">
+    <section className="experience p-40" id="experience" style={{ padding: '0.1rem', marginBottom: '2rem' }}>
       <div className="container">
-        <div className="heading mb-32">
-          <h3>Contact Me</h3>
+        <div className="heading mb-24">
+          <h2 className="mb-16">Testimonials</h2>
+          <h5>“Testimonials from my top clients back up the quality of my best work.”</h5>
         </div>
-        <div className="contact-info bg-gray-800 bg-opacity-50 p-12 rounded-lg shadow-lg">
-          <p className="text-white">If you have any questions or inquiries, feel free to get in touch with me.</p>
-          <ul className="list-unstyled text-white">
-            {contactInfo.map((item, index) => (
-              <li key={index} className="mb-4">
-                <strong>{item.label}:</strong> {item.value}
-              </li>
-            ))}
-          </ul>
+        <div className="row">
+          {testimonials.map((testimonial, index) => (
+            <div className="col-lg-4 mb-4" key={index}>
+              <div className="content-block bg-gradient shadow br-30 p-20">
+                <div className="testimonial-info">
+                  {/* Imagen del testimonio al principio del nombre */}
+                  <img src={testimonial.photoUrl} alt={testimonial.name} className="testimonial-photo" />
+                  <div className="testimonial-details">
+                    {/* Centro el nombre */}
+                    <h3 className="mb-16 text-center">{testimonial.name}</h3>
+                    <h4 className="mb-16">{testimonial.product}</h4>
+                    <p>{testimonial.comment}</p>
+                    {/* Estrellas */}
+                    <div className="stars">
+                      <span className="star">&#9733;</span>
+                      <span className="star">&#9733;</span>
+                      <span className="star">&#9733;</span>
+                      <span className="star">&#9733;</span>
+                      <span className="star">&#9733;</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
-
-
 
 function Footer() {
   return (
@@ -309,7 +326,6 @@ function App() {
         <Projects />
         <Skills />
         <Experience />
-        <Contact />
         <Footer />
       </div>
     </div>

@@ -767,7 +767,7 @@ Helpers
 }
 
 .p-40 {
-  padding: 40px 0;
+  padding: 0.1rem 0.1rem;
 }
 @media (max-width: 1199px) {
   .p-40 {
@@ -1209,7 +1209,6 @@ header {
 }
 header.large-screens {
   height: 100px;
-  padding: 28px 0;
 }
 @media (max-width: 992px) {
   header.large-screens {
@@ -1472,7 +1471,7 @@ footer .content .social-icons {
 }
 
 .services .service-box {
-  padding: 32px;
+  padding: 0.1rem;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -1550,3 +1549,7 @@ footer .content .social-icons {
 
 /*# sourceMappingURL=app.css.map */
 
+.logo-img {
+  max-width: 150px; /* Ajusta el tamaño máximo según tus necesidades */
+  height: auto; /* Mantén la proporción de aspecto */
+}

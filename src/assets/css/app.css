@@ -1551,3 +1551,11 @@ footer .content .social-icons {
   height: auto;
   margin-right: 40px; /* Espacio entre la imagen y el texto */
 }
+
+.zoom-image {
+  transition: transform 0.2s;
+}
+
+.zoom-image:hover {
+  transform: scale(1.6);
+}

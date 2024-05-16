@@ -103,27 +103,28 @@ function HeroBanner() {
   ];
 
   return (
-    <section className="hero-banner bg-blue-transparent mb-4">  {/* Agrega un margen inferior aquí */}
-      <div className="heading mb-48"> {/* Agrega un margen superior */}
+    <section className="hero-banner bg-blue-transparent mb-4">
+      <div className="heading mb-48">
         <div className="row">
           <div className="col-lg-12">
-            <div className="content-block bg-gradient shadow br-30 p-4 "> {/* Agrega un padding y un margen inferior */}
+            <div className="content-block bg-gradient shadow br-30 p-4">
               <div className="row align-items-center">
                 <div className="col-lg-6">
-                  <h2 className="mb-16">David Inguilán</h2>
+                  <h1 className="mb-16" style={{ fontSize: '3rem' }}>David Inguilán</h1>
                   <h5 className="dark-gray mb-16">"Desarrollador de software comprometido con la excelencia y la innovación."</h5>
-                  <p className="mb-0">Contact Me</p>
-                  <div className="contact-info">
-                    <p className="text-black mb-1">Email: dg4834307@gmail.com</p>
-                    <p className="text-black mb-1">Phone: 3235806283</p>
-                    <p className="text-black">Address: 11 Street, City, Pasto</p>
-                  </div>
+                  <ul className="contact-list mb-0">
+                    {contactInfo.map((info, index) => (
+                      <li className="text-black" key={index}>
+                        <strong>{info.label}:</strong> {info.value}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
                 <div className="col-lg-6">
                   <h2 className="mb-16">About Me</h2>
                   <h5 className="dark-gray mb-4">
-
-"As a dedicated software engineer, I possess a strong academic background and an insatiable thirst for learning and growth in the technology realm. My objective is to contribute to the development of robust software solutions while continuously expanding my expertise in programming and staying abreast of emerging technologies and industry trends."</h5>
+                    "As a dedicated software engineer, I possess a strong academic background and an insatiable thirst for learning and growth in the technology realm. My objective is to contribute to the development of robust software solutions while continuously expanding my expertise in programming and staying abreast of emerging technologies and industry trends."
+                  </h5>
                 </div>
               </div>
             </div>

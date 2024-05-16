@@ -95,11 +95,6 @@ function Header() {
 
 
 
-
-
-
-
-
 function HeroBanner() {
   const contactInfo = [
     { label: 'Email', value: 'dg4834307@gmail.com' },
@@ -139,35 +134,36 @@ function HeroBanner() {
   );
 }
 
-
 function Projects() {
   return (
     <section className="services p-40" id="services" style={{ padding: '0.1rem' }}>
       <div className="container">
         <div className="heading ">
           <h3 className="mb-32">Projects</h3>
-          
         </div>
         <div className="row">
           <div className="col-lg-4">
             <div className="content-block bg-gradient shadow br-30 p-20">
               <h4 className="mb-16">Secure Password Generator</h4>
+              <img src="src/assets/media/banner/imagen.jpeg" alt="Secure Password Generator" className="zoom-image" style={{ marginBottom: '20px' }} />
               <p>Description: Program that generates secure passwords randomly and displays them to the user. Length and character types can be set.
-Technologies: Python with CLI or GUI using libraries such as Tkinter or PyQt.</p>
+              Technologies: Python with CLI or GUI using libraries such as Tkinter or PyQt.</p>
             </div>
           </div>
           <div className="col-lg-4">
             <div className="content-block bg-gradient shadow br-30 p-20">
               <h4 className="mb-16">Azure database-driven coffee sales website</h4>
+              <img src="src/assets/media/banner/imagen.jpeg" alt="Azure database-driven coffee sales website" className="zoom-image" style={{ marginBottom: '20px' }} />
               <p>Description: A website to buy coffee with Azure cloud database.
-Technologies: HTML, CSS, JavaScript, Node.js or ASP.NET Core, SQL Database or Cosmos DB.</p>
+              Technologies: HTML, CSS, JavaScript, Node.js or ASP.NET Core, SQL Database or Cosmos DB.</p>
             </div>
           </div>
           <div className="col-lg-4">
             <div className="content-block bg-gradient shadow br-30 p-20">
               <h4 className="mb-16">Movie API using Django REST Framework</h4>
+              <img src="src/assets/media/banner/imagen.jpeg" alt="Movie API using Django REST Framework" className="zoom-image" style={{ marginBottom: '20px' }} />
               <p>Description: A movie API built with Django REST Framework.
-Technologies: Django REST Framework, Django ORM.</p>
+              Technologies: Django REST Framework, Django ORM.</p>
             </div>
           </div>
         </div>
@@ -175,6 +171,8 @@ Technologies: Django REST Framework, Django ORM.</p>
     </section>
   );
 }
+
+
 
 function Skills() {
   return (
@@ -185,40 +183,136 @@ function Skills() {
           <h5>Empowering Expertise: My Skill Set in Focus.</h5>
         </div>
         <div className="row">
-          <div className="col-lg-4 mb-4">
-            <div className="content-block bg-gradient shadow br-30 p-20">
-              <h4 className="mb-16">MySql</h4>
-              <p>Expert in MySQL, efficiently manage relational databases to create robust and scalable storage systems.</p>
+        <div className="col-lg-4 mb-4">
+            <div className="content-block bg-gradient shadow br-30 p-20 d-flex flex-column">
+              <div className="d-flex justify-content-end">
+                <img
+                  src="src/assets/media/banner/mysl1.png"
+                  alt="MySQL Logo"
+                  className="logo rounded-circle shadow-sm"
+                  style={{ maxWidth: '30%', height: 'auto', transition: 'transform 0.3s ease' }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.1)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                  }}
+                />
+              </div>
+              <div>
+                <h4 className="mb-16">MySql</h4>
+                <p>Expert in MySQL, efficiently manage relational databases to create robust and scalable storage systems.</p>
+              </div>
             </div>
           </div>
           <div className="col-lg-4 mb-4">
-            <div className="content-block bg-gradient shadow br-30 p-20">
-              <h4 className="mb-16">TypeScript</h4>
-              <p>Proficiency in TypeScript, empowering JavaScript programming with a static type system to develop more secure and reliable applications.</p>
+            <div className="content-block bg-gradient shadow br-30 p-20 d-flex flex-column">
+              <div className="d-flex justify-content-end">
+                <img
+                  src="src/assets/media/banner/ts.png"
+                  alt="MySQL Logo"
+                  className="logo rounded-circle shadow-sm"
+                  style={{ maxWidth: '30%', height: 'auto', transition: 'transform 0.3s ease' }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.1)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                  }}
+                />
+              </div>
+              <div>
+                <h4 className="mb-16">TypeScript</h4>
+                <p>Proficiency in TypeScript, empowering JavaScript programming with a static type system to develop more secure and reliable applications.</p>
+              </div>
             </div>
           </div>
           <div className="col-lg-4 mb-4">
-            <div className="content-block bg-gradient shadow br-30 p-20">
-              <h4 className="mb-16">Python</h4>
-              <p>Outstanding Python skills, using it for a wide range of applications, from web development to artificial intelligence.</p>
+            <div className="content-block bg-gradient shadow br-30 p-20 d-flex flex-column">
+              <div className="d-flex justify-content-end">
+                <img
+                  src="src/assets/media/banner/python.png"
+                  alt="MySQL Logo"
+                  className="logo rounded-circle shadow-sm"
+                  style={{ maxWidth: '30%', height: 'auto', transition: 'transform 0.3s ease' }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.1)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                  }}
+                />
+              </div>
+              <div>
+                <h4 className="mb-16">Python</h4>
+                <p>Outstanding Python skills, using it for a wide range of applications, from web development to artificial intelligence.</p>
+              </div>
             </div>
           </div>
           <div className="col-lg-4 mb-4">
-            <div className="content-block bg-gradient shadow br-30 p-20">
-              <h4 className="mb-16">Javascript</h4>
-              <p>Expertise in JavaScript, creating dynamic interactivity in web pages and developing both client-side and server-side applications.</p>
+            <div className="content-block bg-gradient shadow br-30 p-20 d-flex flex-column">
+              <div className="d-flex justify-content-end">
+                <img
+                  src="src\assets\media\banner\imajava.jpg"
+                  alt="MySQL Logo"
+                  className="logo rounded-circle shadow-sm"
+                  style={{ maxWidth: '30%', height: 'auto', transition: 'transform 0.3s ease' }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.1)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                  }}
+                />
+              </div>
+              <div>
+                <h4 className="mb-16">JavaScript</h4>
+                <p>Expertise in JavaScript, creating dynamic interactivity in web pages and developing both client-side and server-side applications</p>
+              </div>
             </div>
           </div>
           <div className="col-lg-4 mb-4">
-            <div className="content-block bg-gradient shadow br-30 p-20">
-              <h4 className="mb-16">C#</h4>
-              <p>C# specialist, building high performance and scalable applications in the Microsoft ecosystem.</p>
+            <div className="content-block bg-gradient shadow br-30 p-20 d-flex flex-column">
+              <div className="d-flex justify-content-end">
+                <img
+                  src="src/assets/media/banner/c_.png"
+                  alt="MySQL Logo"
+                  className="logo rounded-circle shadow-sm"
+                  style={{ maxWidth: '30%', height: 'auto', transition: 'transform 0.3s ease' }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.1)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                  }}
+                />
+              </div>
+              <div>
+                <h4 className="mb-16">C#</h4>
+                <p>C# specialist, building high performance and scalable applications in the Microsoft ecosystem.</p>
+              </div>
             </div>
           </div>
           <div className="col-lg-4 mb-4">
-            <div className="content-block bg-gradient shadow br-30 p-20">
-              <h4 className="mb-16">Node js</h4>
-              <p>Solid experience in Node.js, leveraging its ability to develop fast and efficient web services.</p>
+            <div className="content-block bg-gradient shadow br-30 p-20 d-flex flex-column">
+              <div className="d-flex justify-content-end">
+                <img
+                  src="src/assets/media/banner/nodejs.png"
+                  alt="MySQL Logo"
+                  className="logo rounded-circle shadow-sm"
+                  style={{ maxWidth: '30%', height: 'auto', transition: 'transform 0.3s ease' }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.transform = 'scale(1.1)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.transform = 'scale(1)';
+                  }}
+                />
+              </div>
+              <div>
+                <h4 className="mb-16">Node js</h4>
+                <p>Solid experience in Node.js, leveraging its ability to develop fast and efficient web services.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -226,6 +320,7 @@ function Skills() {
     </section>
   );
 }
+
 
 function Experience() {
   // Array de testimonios con fotos

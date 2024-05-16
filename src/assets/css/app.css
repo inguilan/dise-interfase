@@ -1566,3 +1566,10 @@ footer .content .social-icons {
 .testimonial-details h4 {
   margin-bottom: 10px;
 }
+.zoom-image {
+  transition: transform 0.2s; /* Agrega una transición suave para el efecto de zoom */
+}
+
+.zoom-image:hover {
+  transform: scale(1.3); /* Hace zoom a la imagen cuando el cursor está sobre ella */
+}

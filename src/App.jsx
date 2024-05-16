@@ -16,11 +16,13 @@ import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg
 import './assets/js/app.js'; // Asegúrate de importar tus estilos CSS aquí
 
 
+
+
 function Navbar() {
   return (
-    <header className="large-screens navbar-container mb-4" style={{ boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)', background: 'linear-gradient(180deg, #E8F3FF 0%, #EAFFEA 100%)' }}> {/* Agrega un margen inferior, una sombra y un degradado lineal de colores */}
-      <div className="container d-flex justify-content-between align-items-center"> {/* Centra el contenido horizontalmente */}
-        <a className="navbar-brand" href="/"><img alt="" src="src/assets/media/icons/c-removebg-preview.png" className="logo-img" style={{ width: '100px', height: 'auto' }} /></a> {/* Aumenta el tamaño del logo */}
+    <header id="navbar" className="large-screens navbar-container mb-4" style={{ boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)', background: 'linear-gradient(180deg, #E8F3FF 0%, #EAFFEA 100%)' }}>
+      <div className="container d-flex justify-content-between align-items-center">
+        <a className="navbar-brand" href="/"><img alt="" src="src/assets/media/icons/c-removebg-preview.png" className="logo-img" style={{ width: '100px', height: 'auto' }} /></a>
         <nav className="navbar navbar-expand-lg">
           <div className="navbar-collapse justify-content-end">
             <ul className="navbar-nav mainmenu">
@@ -35,6 +37,10 @@ function Navbar() {
     </header>
   );
 }
+
+
+
+
 
 
 
@@ -135,36 +141,43 @@ function HeroBanner() {
   );
 }
 
+
 function Projects() {
   return (
-    <section className="services p-40" id="services" style={{ padding: '0.1rem' }}>
+    <section className="services p-50" id="services" style={{ padding: '0.1rem' }}>
       <div className="container">
         <div className="heading ">
-          <h3 className="mb-32">Projects</h3>
+          {/* Cambiar el tamaño de letra del título */}
+          <h3 className="mb-20" style={{ fontSize: '5rem' }}>Projects</h3>
         </div>
+        {/* Agrega un botón para regresar a la barra de navegación */}
+        <a href="#navbar" className="btn-back-to-top">Back to Navigation</a>
         <div className="row">
           <div className="col-lg-4">
             <div className="content-block bg-gradient shadow br-30 p-20">
-              <h4 className="mb-16">Secure Password Generator</h4>
+              {/* Cambiar el tamaño de letra del título */}
+              <h4 className="mb-16" style={{ fontSize: '1.5rem' }}>Secure Password Generator</h4>
               <img src="src/assets/media/banner/imagen.jpeg" alt="Secure Password Generator" className="zoom-image" style={{ marginBottom: '20px' }} />
-              <p>Description: Program that generates secure passwords randomly and displays them to the user. Length and character types can be set.
-              Technologies: Python with CLI or GUI using libraries such as Tkinter or PyQt.</p>
+              {/* Cambiar el tamaño de letra del párrafo */}
+              <p style={{ fontSize: '1rem' }}>Description: Program that generates secure passwords randomly and displays them to the user. Length and character types can be set. Technologies: Python with CLI or GUI using libraries such as Tkinter or PyQt.</p>
             </div>
           </div>
           <div className="col-lg-4">
             <div className="content-block bg-gradient shadow br-30 p-20">
-              <h4 className="mb-16">Azure database-driven coffee sales website</h4>
+              {/* Cambiar el tamaño de letra del título */}
+              <h4 className="mb-16" style={{ fontSize: '1.5rem' }}>Azure database-driven coffee sales website</h4>
               <img src="src/assets/media/banner/imagen.jpeg" alt="Azure database-driven coffee sales website" className="zoom-image" style={{ marginBottom: '20px' }} />
-              <p>Description: A website to buy coffee with Azure cloud database.
-              Technologies: HTML, CSS, JavaScript, Node.js or ASP.NET Core, SQL Database or Cosmos DB.</p>
+              {/* Cambiar el tamaño de letra del párrafo */}
+              <p style={{ fontSize: '1rem' }}>Description: A website to buy coffee with Azure cloud database. Technologies: HTML, CSS, JavaScript, Node.js or ASP.NET Core, SQL Database or Cosmos DB.</p>
             </div>
           </div>
           <div className="col-lg-4">
             <div className="content-block bg-gradient shadow br-30 p-20">
-              <h4 className="mb-16">Movie API using Django REST Framework</h4>
+              {/* Cambiar el tamaño de letra del título */}
+              <h4 className="mb-16" style={{ fontSize: '1.5rem' }}>Movie API using Django REST Framework</h4>
               <img src="src/assets/media/banner/imagen.jpeg" alt="Movie API using Django REST Framework" className="zoom-image" style={{ marginBottom: '20px' }} />
-              <p>Description: A movie API built with Django REST Framework.
-              Technologies: Django REST Framework, Django ORM.</p>
+              {/* Cambiar el tamaño de letra del párrafo */}
+              <p style={{ fontSize: '1rem' }}>Description: A movie API built with Django REST Framework. Technologies: Django REST Framework, Django ORM.</p>
             </div>
           </div>
         </div>
@@ -175,16 +188,23 @@ function Projects() {
 
 
 
+
+
+
 function Skills() {
   return (
-    <section className="skills p-40" id="skills" style={{ padding: '0.1rem' }}>
+    <section className="skills p-40" id="skills" style={{ padding: '4rem' }}>
       <div className="container">
-        <div className="heading mb-48">
-          <h3 className="mb-32">Skills</h3>
+        <div className="heading mb-20">
+          {/* Nuevo elemento div con el cambio de tamaño de letra */}
+          <div className="heading">
+            <h3 className="mb-20" style={{ fontSize: '5rem' }}>Skills</h3>
+          </div>
+          {/* Fin del nuevo elemento div */}
           <h5>Empowering Expertise: My Skill Set in Focus.</h5>
         </div>
         <div className="row">
-        <div className="col-lg-4 mb-4">
+          <div className="col-lg-4 mb-4">
             <div className="content-block bg-gradient shadow br-30 p-20 d-flex flex-column">
               <div className="d-flex justify-content-end">
                 <img
@@ -193,7 +213,7 @@ function Skills() {
                   className="logo rounded-circle shadow-sm"
                   style={{ maxWidth: '30%', height: 'auto', transition: 'transform 0.3s ease' }}
                   onMouseOver={(e) => {
-                    e.currentTarget.style.transform = 'scale(1.1)';
+                    e.currentTarget.style.transform = 'scale(1.5)';
                   }}
                   onMouseOut={(e) => {
                     e.currentTarget.style.transform = 'scale(1)';
@@ -215,7 +235,7 @@ function Skills() {
                   className="logo rounded-circle shadow-sm"
                   style={{ maxWidth: '30%', height: 'auto', transition: 'transform 0.3s ease' }}
                   onMouseOver={(e) => {
-                    e.currentTarget.style.transform = 'scale(1.1)';
+                    e.currentTarget.style.transform = 'scale(1.5)';
                   }}
                   onMouseOut={(e) => {
                     e.currentTarget.style.transform = 'scale(1)';
@@ -237,7 +257,7 @@ function Skills() {
                   className="logo rounded-circle shadow-sm"
                   style={{ maxWidth: '30%', height: 'auto', transition: 'transform 0.3s ease' }}
                   onMouseOver={(e) => {
-                    e.currentTarget.style.transform = 'scale(1.1)';
+                    e.currentTarget.style.transform = 'scale(1.6)';
                   }}
                   onMouseOut={(e) => {
                     e.currentTarget.style.transform = 'scale(1)';
@@ -259,7 +279,7 @@ function Skills() {
                   className="logo rounded-circle shadow-sm"
                   style={{ maxWidth: '30%', height: 'auto', transition: 'transform 0.3s ease' }}
                   onMouseOver={(e) => {
-                    e.currentTarget.style.transform = 'scale(1.1)';
+                    e.currentTarget.style.transform = 'scale(1.5)';
                   }}
                   onMouseOut={(e) => {
                     e.currentTarget.style.transform = 'scale(1)';
@@ -281,7 +301,7 @@ function Skills() {
                   className="logo rounded-circle shadow-sm"
                   style={{ maxWidth: '30%', height: 'auto', transition: 'transform 0.3s ease' }}
                   onMouseOver={(e) => {
-                    e.currentTarget.style.transform = 'scale(1.1)';
+                    e.currentTarget.style.transform = 'scale(1.5)';
                   }}
                   onMouseOut={(e) => {
                     e.currentTarget.style.transform = 'scale(1)';
@@ -303,7 +323,7 @@ function Skills() {
                   className="logo rounded-circle shadow-sm"
                   style={{ maxWidth: '30%', height: 'auto', transition: 'transform 0.3s ease' }}
                   onMouseOver={(e) => {
-                    e.currentTarget.style.transform = 'scale(1.1)';
+                    e.currentTarget.style.transform = 'scale(1.5)';
                   }}
                   onMouseOut={(e) => {
                     e.currentTarget.style.transform = 'scale(1)';
@@ -317,10 +337,15 @@ function Skills() {
             </div>
           </div>
         </div>
+        {/* Botón para regresar a la barra de navegación */}
+        <a href="#navbar" className="btn-back-to-top">Back to Navigation</a>
       </div>
     </section>
   );
 }
+
+
+
 
 
 function Experience() {
@@ -360,11 +385,11 @@ function Experience() {
                 <div className="testimonial-info d-flex flex-column align-items-center">
                   {/* Imagen del testimonio en la esquina superior izquierda */}
                   <img src={testimonial.photoUrl} alt={testimonial.name} className="testimonial-photo" />
-                  <div className="testimonial-details text-center mt-3">
-                    <h3 style={{ marginBottom: '40px' }}>{testimonial.name}</h3> {/* Puedes ajustar marginBottom */}
-                    <h4 style={{ marginBottom: '40px' }}>{testimonial.product}</h4> {/* Puedes ajustar marginBottom */}
-                    <p style={{ marginBottom: '40px' }}>{testimonial.comment}</p> {/* Puedes ajustar marginBottom */}
-                    <div className="stars">
+                  <div className="testimonial-details text-center">
+                    <h3 style={{ marginBottom: '10px' }}>{testimonial.name}</h3> {/* Puedes ajustar marginBottom */}
+                    <h4 style={{ marginBottom: '10px' }}>{testimonial.product}</h4> {/* Puedes ajustar marginBottom */}
+                    <p style={{ marginBottom: '10px' }}>{testimonial.comment}</p> {/* Puedes ajustar marginBottom */}
+                    <div className="stars text-right mt-auto">
                       <span className="star">&#9733;</span>
                       <span className="star">&#9733;</span>
                       <span className="star">&#9733;</span>
@@ -381,6 +406,7 @@ function Experience() {
     </section>
   );
 }
+
 
 
 

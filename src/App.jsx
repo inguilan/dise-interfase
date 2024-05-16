@@ -10,6 +10,8 @@ import './assets/js/vendor/jquery-3.6.3.min.js';
 import './assets/js/vendor/jquery-appear.js';
 import './assets/js/vendor/jquery-validator.js';
 import './assets/js/vendor/slick.min.js';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 import './assets/js/app.js'; // Asegúrate de importar tus estilos CSS aquí
 
@@ -61,7 +63,7 @@ function MobileNavbar() {
 
 function Header() {
   return (
-    <header id="headermain" className="mb-4 text-center" style={{ backgroundImage: `url('src/assets/media/banner/banner.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}> {/* Agrega un margen inferior y centra el texto */}
+    <header id="headermain" className="mb-4 text-center" style={{ backgroundImage: `url('src/assets/media/banner/banner2.jpeg')`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}> {/* Agrega un margen inferior y centra el texto */}
       <div className="container">
         <div className="row headerwrap">
           <div className="col-lg-6 align-items-center" style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap', alignContent: 'center', justifyContent: 'space-evenly', alignItems: 'center' }}>
@@ -106,7 +108,7 @@ function HeroBanner() {
   ];
 
   return (
-    <section className="hero-banner bg-blue-transparent mb-4"> {/* Agrega un margen inferior aquí */}
+    <section className="hero-banner bg-blue-transparent mb-4">  {/* Agrega un margen inferior aquí */}
       <div className="heading mb-48"> {/* Agrega un margen superior */}
         <div className="row">
           <div className="col-lg-12">
@@ -232,19 +234,19 @@ function Experience() {
       name: "Sofia Pedrozo",
       product: "Secure Password Generator",
       comment: "Awesome! This password generator is easy to use and offers customizable options. I feel more secure with strong passwords for my online accounts - highly recommended!",
-      photoUrl: "src/assets/media/banner/perfil-mujer-vivo.png" // URL de la foto de Sofia Pedrozo
+      photoUrl: "src/assets/media/Señora.jpg" // URL de la foto de Sofia Pedrozo
     },
     {
       name: "Ricardo Cardona",
       product: "Azure database-driven coffee sales website",
       comment: "Amazing shopping experience! Wide selection of quality coffee, easy navigation and delicious coffee - my favorite online coffee shopping destination!",
-      photoUrl: "src/assets/media/banner/hombrenegro.jpg" // URL de la foto de Ricardo Cardona
+      photoUrl: "src/assets/media/Señor1.jpg" // URL de la foto de Ricardo Cardona
     },
     {
       name: "Miguelito Revelo",
       product: "Movie API using Django REST Framework",
       comment: "Excellent API! Easy to integrate, clear documentation and responsive support. A valuable tool for any app developer.",
-      photoUrl: "src/assets/media/banner/hombrerubio.jpg" // URL de la foto de Miguelito Revelo
+      photoUrl: "src/assets/media/Hombre.jpg" // URL de la foto de Miguelito Revelo
     }
   ];
 
@@ -259,15 +261,13 @@ function Experience() {
           {testimonials.map((testimonial, index) => (
             <div className="col-lg-4 mb-4" key={index}>
               <div className="content-block bg-gradient shadow br-30 p-20">
-                <div className="testimonial-info">
-                  {/* Imagen del testimonio al principio del nombre */}
+                <div className="testimonial-info d-flex flex-column align-items-center">
+                  {/* Imagen del testimonio en la esquina superior izquierda */}
                   <img src={testimonial.photoUrl} alt={testimonial.name} className="testimonial-photo" />
-                  <div className="testimonial-details">
-                    {/* Centro el nombre */}
-                    <h3 className="mb-16 text-center">{testimonial.name}</h3>
-                    <h4 className="mb-16">{testimonial.product}</h4>
-                    <p>{testimonial.comment}</p>
-                    {/* Estrellas */}
+                  <div className="testimonial-details text-center mt-3">
+                    <h3 style={{ marginBottom: '40px' }}>{testimonial.name}</h3> {/* Puedes ajustar marginBottom */}
+                    <h4 style={{ marginBottom: '40px' }}>{testimonial.product}</h4> {/* Puedes ajustar marginBottom */}
+                    <p style={{ marginBottom: '40px' }}>{testimonial.comment}</p> {/* Puedes ajustar marginBottom */}
                     <div className="stars">
                       <span className="star">&#9733;</span>
                       <span className="star">&#9733;</span>
@@ -285,6 +285,9 @@ function Experience() {
     </section>
   );
 }
+
+
+
 
 function Footer() {
   return (

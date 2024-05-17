@@ -12,7 +12,7 @@ import './assets/js/vendor/jquery-validator.js';
 import './assets/js/vendor/slick.min.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-
+import.meta.env.BASE_URL
 import './assets/js/app.js'; // Asegúrate de importar tus estilos CSS aquí
 
 
@@ -141,10 +141,9 @@ function HeroBanner() {
   );
 }
 
-
-function Projects() {
+function Projects({ backgroundImage }) {
   return (
-    <section className="services p-50" id="services" style={{ padding: '0.1rem' }}>
+    <section className="services p-50" id="services" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}${backgroundImage})`, padding: '0.1rem' }}>
       <div className="container">
         <div className="heading ">
           {/* Cambiar el tamaño de letra del título */}
@@ -157,7 +156,7 @@ function Projects() {
             <div className="content-block bg-gradient shadow br-30 p-20">
               {/* Cambiar el tamaño de letra del título */}
               <h4 className="mb-16" style={{ fontSize: '1.5rem' }}>Secure Password Generator</h4>
-              <img src="src/assets/media/banner/imagen.jpeg" alt="Secure Password Generator" className="zoom-image" style={{ marginBottom: '20px' }} />
+              <img src="src/assets/media/banner/passwordgenerator.webp" alt="Secure Password Generator" className="zoom-image" style={{ marginBottom: '20px' }} />
               {/* Cambiar el tamaño de letra del párrafo */}
               <p style={{ fontSize: '1rem' }}>Description: Program that generates secure passwords randomly and displays them to the user. Length and character types can be set. Technologies: Python with CLI or GUI using libraries such as Tkinter or PyQt.</p>
             </div>
@@ -166,7 +165,7 @@ function Projects() {
             <div className="content-block bg-gradient shadow br-30 p-20">
               {/* Cambiar el tamaño de letra del título */}
               <h4 className="mb-16" style={{ fontSize: '1.5rem' }}>Azure database-driven coffee sales website</h4>
-              <img src="src/assets/media/banner/imagen.jpeg" alt="Azure database-driven coffee sales website" className="zoom-image" style={{ marginBottom: '20px' }} />
+              <img src="src/assets/media/banner/cafeterias.webp" alt="Azure database-driven coffee sales website" className="zoom-image" style={{ marginBottom: '20px' }} />
               {/* Cambiar el tamaño de letra del párrafo */}
               <p style={{ fontSize: '1rem' }}>Description: A website to buy coffee with Azure cloud database. Technologies: HTML, CSS, JavaScript, Node.js or ASP.NET Core, SQL Database or Cosmos DB.</p>
             </div>
@@ -175,7 +174,7 @@ function Projects() {
             <div className="content-block bg-gradient shadow br-30 p-20">
               {/* Cambiar el tamaño de letra del título */}
               <h4 className="mb-16" style={{ fontSize: '1.5rem' }}>Movie API using Django REST Framework</h4>
-              <img src="src/assets/media/banner/imagen.jpeg" alt="Movie API using Django REST Framework" className="zoom-image" style={{ marginBottom: '20px' }} />
+              <img src="src/assets/media/banner/apipeliculas.png" alt="Movie API using Django REST Framework" className="zoom-image" style={{ marginBottom: '20px' }} />
               {/* Cambiar el tamaño de letra del párrafo */}
               <p style={{ fontSize: '1rem' }}>Description: A movie API built with Django REST Framework. Technologies: Django REST Framework, Django ORM.</p>
             </div>
@@ -185,6 +184,9 @@ function Projects() {
     </section>
   );
 }
+
+
+
 
 
 

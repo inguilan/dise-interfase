@@ -17,6 +17,13 @@ import './assets/js/app.js'; // Asegúrate de importar tus estilos CSS aquí
 
 
 
+function translatePage() {
+  // Simula el clic en el contenedor de Google Translate para abrir el menú de selección de idioma
+  const googleTranslateElement = document.querySelector('.goog-te-combo');
+  if (googleTranslateElement) {
+    googleTranslateElement.click();
+  }
+}
 
 function Navbar() {
   return (
@@ -29,7 +36,8 @@ function Navbar() {
               <li className="nav-item"><a className="nav-link text-black" href="#services">Projects</a></li>
               <li className="nav-item"><a className="nav-link text-black" href="#skills">Skills</a></li>
               <li className="nav-item"><a className="nav-link text-black" href="#experience">Testimonials</a></li>
-              <li className="nav-item"><a className="nav-link text-black" href="#contact">Contact me</a></li>
+
+              <li className="nav-item"><button className="nav-link btn btn-primary text-white" onClick={translatePage}>Traducir Página</button></li>
             </ul>
           </div>
         </nav>
@@ -37,7 +45,6 @@ function Navbar() {
     </header>
   );
 }
-
 
 
 
@@ -448,7 +455,7 @@ function App() {
       <div id="main-wrapper" className="main-wrapper overflow-hidden">
         <Navbar />
         <MobileNavbar />
-        <Header  />
+        <Header />
         <HeroBanner />
         <Projects />
         <Skills />
@@ -458,5 +465,8 @@ function App() {
     </div>
   );
 }
+
+
+
 
 export default App;

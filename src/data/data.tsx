@@ -1,16 +1,10 @@
+//language
 type LanguageType = {
-    label: string;
-    code: string;
+  label: string;
+  code: string;
 }
 
-export const messages = {
-    en: {
-      helloMessage: 'Hello, World!',
-    },
-    es: {
-      helloMessage: '¡Hola, Mundo!',
-    },
-  };
-  
-  export default messages;
-  
+export const languageData = (): LanguageType[] => [
+  { label: 'English', code: 'en' },
+  { label: 'Spanish', code: 'es' }, // Corrección: Cambiado de 'Espanish' a 'Spanish'
+];

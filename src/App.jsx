@@ -12,20 +12,15 @@ import './assets/js/vendor/jquery-validator.js';
 import './assets/js/vendor/slick.min.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-import.meta.env.BASE_URL
-import './assets/js/app.js'; // Asegúrate de importar tus estilos CSS aquí
+import { useTranslation } from 'react-i18next';
+import './i18n.ts';
 
-
-
-function translatePage() {
-  // Simula el clic en el contenedor de Google Translate para abrir el menú de selección de idioma
-  const googleTranslateElement = document.querySelector('.goog-te-combo');
-  if (googleTranslateElement) {
-    googleTranslateElement.click();
-  }
-}
+import { languageData } from './data/data.tsx';
+import './assets/js/app.js'; // Make sure to import your CSS styles here
 
 function Navbar() {
+  const { t, i18n } = useTranslation();
+
   return (
     <header id="navbar" className="large-screens navbar-container mb-4" style={{ boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)', background: 'linear-gradient(180deg, #E8F3FF 0%, #EAFFEA 100%)' }}>
       <div className="container d-flex justify-content-between align-items-center">
@@ -33,11 +28,9 @@ function Navbar() {
         <nav className="navbar navbar-expand-lg">
           <div className="navbar-collapse justify-content-end">
             <ul className="navbar-nav mainmenu">
-              <li className="nav-item"><a className="nav-link text-black" href="#services">Projects</a></li>
-              <li className="nav-item"><a className="nav-link text-black" href="#skills">Skills</a></li>
-              <li className="nav-item"><a className="nav-link text-black" href="#experience">Testimonials</a></li>
-
-              <li className="nav-item"><button className="nav-link btn btn-primary text-white" onClick={translatePage}>Traducir Página</button></li>
+              <li className="nav-item"><a className="nav-link text-black" href="#services">{t('proyectos')}</a></li>
+              <li className="nav-item"><a className="nav-link text-black" href="#skills">{t('habilidades')}</a></li>
+              <li className="nav-item"><a className="nav-link text-black" href="#experience">{t('Testimonios')}</a></li>
             </ul>
           </div>
         </nav>
@@ -46,14 +39,9 @@ function Navbar() {
   );
 }
 
-
-
-
-
-
 function MobileNavbar() {
   return (
-    <header className="small-screen" style={{ boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }}> {/* Agrega una sombra de color negro con opacidad */}
+    <header className="small-screen" style={{ boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)' }}> {/* Add a black shadow with opacity */}
       <div className="container">
         <div className="mobile-menu">
           <a className="navbar-brand" href="/"><img alt="" src="assets/media/icons/logo_trial.png" /></a>
@@ -74,45 +62,56 @@ function MobileNavbar() {
   );
 }
 
+
+
 function Header() {
+  const { t, i18n } = useTranslation(); // Hook useTranslation para acceder a las traducciones
+
+  // Función para cambiar el idioma
+  const handleChangeLanguage = () => {
+    const newLanguage = i18n.language === 'es' ? 'en' : 'es'; // Cambiar a 'en' si está en español, o a 'es' si está en inglés
+    i18n.changeLanguage(newLanguage); // Cambiar el idioma en el objeto i18n
+  };
+
   return (
-    <header id="headermain" className="mb-4 text-center" style={{ backgroundImage: `url('src/assets/media/banner/banner2.jpeg')`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}> {/* Agrega un margen inferior y centra el texto */}
+    <header id="headermain" className="mb-4 text-center" style={{ backgroundImage: `url('src/assets/media/banner/banner2.jpeg')`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
       <div className="container">
         <div className="row headerwrap">
           <div className="col-lg-6 align-items-center" style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap', alignContent: 'center', justifyContent: 'space-evenly', alignItems: 'center' }}>
-            {/* Texto a la izquierda */}
-            <div className="headerwrap__text text-right" style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap', alignContent: 'center', justifyContent: 'space-evenly', alignItems: 'center' }}> {/* Alinea el texto a la derecha y aplica las características */}
-              <h1 style={{ fontSize: '2.5rem' }}>Luis David Inguilan Guzman</h1> {/* Aumenta el tamaño de la fuente */}
-               {/* Párrafo movido debajo del título */}
-              <p>Your trusted engineer</p>
+            <div className="headerwrap__text text-right" style={{ display: 'flex', flexDirection: 'column', flexWrap: 'wrap', alignContent: 'center', justifyContent: 'space-evenly', alignItems: 'center' }}>
+              <h1 style={{ fontSize: '2.5rem' }}>{t('David Inguilan')}</h1>
+              <p>{t('header.subtitle')}</p>
             </div>
           </div>
           <div className="col-lg-6 d-flex justify-content-end">
-            {/* Logo */}
-            <div className="headerwrap__logo rounded-circle overflow-hidden" style={{ padding: '100px' }}> {/* Añade padding personalizable */}
-              <img src="src\assets\media\icons\giphy.gif" alt="logo" className="img-fluid rounded-circle" style={{ width: '300px', height: '300px' }} /> {/* Agrega bordes redondos */}
+            <div className="headerwrap__logo rounded-circle overflow-hidden" style={{ padding: '100px' }}>
+              <img src="src\assets\media\icons\giphy.gif" alt="logo" className="img-fluid rounded-circle" style={{ width: '300px', height: '300px' }} />
             </div>
           </div>
-          {/* Icono de navegación para dispositivos móviles */}
           <div className="col-lg-2 d-block d-lg-none">
             <div className="navicon">
               <div className="navicon__bar"></div>
             </div>
           </div>
-          {/* Fin del icono de navegación */}
+          {/* Button to change language */}
+          <div className="col-lg-12 d-flex justify-content-center mt-4">
+            <button className="language-button" onClick={handleChangeLanguage}>
+              {i18n.language === 'es' ? 'Change to English' : 'Cambiar a español'}
+            </button>
+          </div>
+          {/* End of language button */}
         </div>
       </div>
     </header>
   );
 }
 
-
-
 function HeroBanner() {
+  const { t } = useTranslation(); // Hook de traducción
   const contactInfo = [
-    { label: 'Email', value: 'dg4834307@gmail.com' },
-    { label: 'Phone', value: '3235806283' },
-    { label: 'Address', value: '11 Street, City, Pasto' }
+    { label: t('Correo electrónico'), value: 'dg4834307@gmail.com' },
+    { label: t('Teléfono'), value: '3235806283' },
+    { label: t('Dirección'), value: '11 Street, City, Pasto' }
   ];
 
   return (
@@ -124,7 +123,7 @@ function HeroBanner() {
               <div className="row align-items-center">
                 <div className="col-lg-6">
                   <h1 className="mb-16" style={{ fontSize: '3rem' }}>David Inguilán</h1>
-                  <h5 className="dark-gray mb-16">"Desarrollador de software comprometido con la excelencia y la innovación."</h5>
+                  <h5 className="dark-gray mb-16">"{t('Desarrollador de software comprometido con la excelencia y la innovación.')}"</h5>
                   <ul className="contact-list mb-0">
                     {contactInfo.map((info, index) => (
                       <li className="text-black" key={index}>
@@ -134,9 +133,9 @@ function HeroBanner() {
                   </ul>
                 </div>
                 <div className="col-lg-6">
-                  <h2 className="mb-16">About Me</h2>
+                  <h2 className="mb-16">{t('Acerca de mí')}</h2>
                   <h5 className="dark-gray mb-4">
-                    "As a dedicated software engineer, I possess a strong academic background and an insatiable thirst for learning and growth in the technology realm. My objective is to contribute to the development of robust software solutions while continuously expanding my expertise in programming and staying abreast of emerging technologies and industry trends."
+                    "{t('Como ingeniero de software dedicado, poseo una sólida formación académica y una sed insaciable de aprendizaje y crecimiento en el ámbito tecnológico. Mi objetivo es contribuir al desarrollo de soluciones de software robustas mientras amplío continuamente mi experiencia en programación y me mantengo al tanto de las tecnologías emergentes y las tendencias de la industria.')}"
                   </h5>
                 </div>
               </div>
@@ -147,43 +146,44 @@ function HeroBanner() {
     </section>
   );
 }
-
 function Projects({ backgroundImage }) {
+  const { t } = useTranslation(); // Hook de traducción
+
   return (
     <section className="services p-50" id="services" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}${backgroundImage})`, padding: '0.1rem' }}>
       <div className="container">
         <div className="heading ">
           {/* Cambiar el tamaño de letra del título */}
-          <h3 className="mb-20" style={{ fontSize: '5rem' }}>Projects</h3>
+          <h3 className="mb-20" style={{ fontSize: '5rem' }}>{t('Proyectos')}</h3>
         </div>
-        {/* Agrega un botón para regresar a la barra de navegación */}
-        <a href="#navbar" className="btn-back-to-top">Back to Navigation</a>
+        {/* Agregar un botón para regresar a la barra de navegación */}
+        <a href="#navbar" className="btn-back-to-top">{t('Volver a la Navegación')}</a>
         <div className="row">
           <div className="col-lg-4">
             <div className="content-block bg-gradient shadow br-30 p-20">
               {/* Cambiar el tamaño de letra del título */}
-              <h4 className="mb-16" style={{ fontSize: '1.5rem' }}>Secure Password Generator</h4>
-              <img src="src/assets/media/banner/passwordgenerator.webp" alt="Secure Password Generator" className="zoom-image" style={{ marginBottom: '20px' }} />
+              <h4 className="mb-16" style={{ fontSize: '1.5rem' }}>{t('Generador de Contraseñas Seguras')}</h4>
+              <img src="src/assets/media/banner/passwordgenerator.webp" alt={t('Generador de Contraseñas Seguras')} className="zoom-image" style={{ marginBottom: '20px' }} />
               {/* Cambiar el tamaño de letra del párrafo */}
-              <p style={{ fontSize: '1rem' }}>Description: Program that generates secure passwords randomly and displays them to the user. Length and character types can be set. Technologies: Python with CLI or GUI using libraries such as Tkinter or PyQt.</p>
+              <p style={{ fontSize: '1rem' }}>{t('Descripción: Programa que genera contraseñas seguras de forma aleatoria y las muestra al usuario. Se puede configurar la longitud y los tipos de caracteres. Tecnologías: Python con CLI o GUI utilizando bibliotecas como Tkinter o PyQt.')}</p>
             </div>
           </div>
           <div className="col-lg-4">
             <div className="content-block bg-gradient shadow br-30 p-20">
               {/* Cambiar el tamaño de letra del título */}
-              <h4 className="mb-16" style={{ fontSize: '1.5rem' }}>Azure database-driven coffee sales website</h4>
-              <img src="src/assets/media/banner/cafeterias.webp" alt="Azure database-driven coffee sales website" className="zoom-image" style={{ marginBottom: '20px' }} />
+              <h4 className="mb-16" style={{ fontSize: '1.5rem' }}>{t('Sitio web de ventas de café impulsado por base de datos de Azure')}</h4>
+              <img src="src/assets/media/banner/cafeterias.webp" alt={t('Sitio web de ventas de café impulsado por base de datos de Azure')} className="zoom-image" style={{ marginBottom: '20px' }} />
               {/* Cambiar el tamaño de letra del párrafo */}
-              <p style={{ fontSize: '1rem' }}>Description: A website to buy coffee with Azure cloud database. Technologies: HTML, CSS, JavaScript, Node.js or ASP.NET Core, SQL Database or Cosmos DB.</p>
+              <p style={{ fontSize: '1rem' }}>{t('Descripción: Un sitio web para comprar café con base de datos en la nube de Azure. Tecnologías: HTML, CSS, JavaScript, Node.js o ASP.NET Core, Base de datos SQL o Cosmos DB.')}</p>
             </div>
           </div>
           <div className="col-lg-4">
             <div className="content-block bg-gradient shadow br-30 p-20">
               {/* Cambiar el tamaño de letra del título */}
-              <h4 className="mb-16" style={{ fontSize: '1.5rem' }}>Movie API using Django REST Framework</h4>
-              <img src="src/assets/media/banner/apipeliculas.png" alt="Movie API using Django REST Framework" className="zoom-image" style={{ marginBottom: '20px' }} />
+              <h4 className="mb-16" style={{ fontSize: '1.5rem' }}>{t('API de películas usando Django REST Framework')}</h4>
+              <img src="src/assets/media/banner/apipeliculas.png" alt={t('API de películas usando Django REST Framework')} className="zoom-image" style={{ marginBottom: '20px' }} />
               {/* Cambiar el tamaño de letra del párrafo */}
-              <p style={{ fontSize: '1rem' }}>Description: A movie API built with Django REST Framework. Technologies: Django REST Framework, Django ORM.</p>
+              <p style={{ fontSize: '1rem' }}>{t('Descripción: Una API de películas construida con Django REST Framework. Tecnologías: Django REST Framework, Django ORM.')}</p>
             </div>
           </div>
         </div>
@@ -201,16 +201,18 @@ function Projects({ backgroundImage }) {
 
 
 function Skills() {
+  const { t } = useTranslation(); // Hook de traducción
+
   return (
     <section className="skills p-40" id="skills" style={{ padding: '4rem' }}>
       <div className="container">
         <div className="heading mb-20">
           {/* Nuevo elemento div con el cambio de tamaño de letra */}
           <div className="heading">
-            <h3 className="mb-20" style={{ fontSize: '5rem' }}>Skills</h3>
+            <h3 className="mb-20" style={{ fontSize: '5rem' }}>{t('Habilidades')}</h3>
           </div>
           {/* Fin del nuevo elemento div */}
-          <h5>Empowering Expertise: My Skill Set in Focus.</h5>
+          <h5>{t('Empoderando experiencia: Mi conjunto de habilidades en foco.')}</h5>
         </div>
         <div className="row">
           <div className="col-lg-4 mb-4">
@@ -231,7 +233,7 @@ function Skills() {
               </div>
               <div>
                 <h4 className="mb-16">MySql</h4>
-                <p>Expert in MySQL, efficiently manage relational databases to create robust and scalable storage systems.</p>
+                <p>{t('Experto en MySQL, gestionando eficientemente bases de datos relacionales para crear sistemas de almacenamiento robustos y escalables.')}</p>
               </div>
             </div>
           </div>
@@ -253,7 +255,7 @@ function Skills() {
               </div>
               <div>
                 <h4 className="mb-16">TypeScript</h4>
-                <p>Proficiency in TypeScript, empowering JavaScript programming with a static type system to develop more secure and reliable applications.</p>
+                <p>{t('Dominio de TypeScript, potenciando la programación JavaScript con un sistema de tipos estático para desarrollar aplicaciones más seguras y confiables.')}</p>
               </div>
             </div>
           </div>
@@ -275,7 +277,7 @@ function Skills() {
               </div>
               <div>
                 <h4 className="mb-16">Python</h4>
-                <p>Outstanding Python skills, using it for a wide range of applications, from web development to artificial intelligence.</p>
+                <p>{t('Excelentes habilidades en Python, utilizándolo para una amplia gama de aplicaciones, desde desarrollo web hasta inteligencia artificial.')}</p>
               </div>
             </div>
           </div>
@@ -297,7 +299,7 @@ function Skills() {
               </div>
               <div>
                 <h4 className="mb-16">JavaScript</h4>
-                <p>Expertise in JavaScript, creating dynamic interactivity in web pages and developing both client-side and server-side applications</p>
+                <p>{t('Experiencia en JavaScript, creando interactividad dinámica en páginas web y desarrollando aplicaciones tanto del lado del cliente como del servidor.')}</p>
               </div>
             </div>
           </div>
@@ -319,7 +321,7 @@ function Skills() {
               </div>
               <div>
                 <h4 className="mb-16">C#</h4>
-                <p>C# specialist, building high performance and scalable applications in the Microsoft ecosystem.</p>
+                <p>{t('Especialista en C#, construyendo aplicaciones de alto rendimiento y escalables en el ecosistema de Microsoft.')}</p>
               </div>
             </div>
           </div>
@@ -341,13 +343,15 @@ function Skills() {
               </div>
               <div>
                 <h4 className="mb-16">Node js</h4>
-                <p>Solid experience in Node.js, leveraging its ability to develop fast and efficient web services.</p>
+                <p>{t('Experiencia sólida en Node.js, aprovechando su capacidad para desarrollar servicios web rápidos y eficientes.')}</p>
               </div>
             </div>
           </div>
         </div>
         {/* Botón para regresar a la barra de navegación */}
-        <a href="#navbar" className="btn-back-to-top">Back to Navigation</a>
+       
+
+        <a href="#navbar" className="btn-back-to-top">{t('Volver a la navegación')}</a>
       </div>
     </section>
   );
@@ -356,26 +360,27 @@ function Skills() {
 
 
 
-
 function Experience() {
+  const { t } = useTranslation(); // Hook de traducción
+
   // Array de testimonios con fotos
   const testimonials = [
     {
       name: "Sofia Pedrozo",
-      product: "Secure Password Generator",
-      comment: "Awesome! This password generator is easy to use and offers customizable options. I feel more secure with strong passwords for my online accounts - highly recommended!",
+      product: t("Generador de Contraseñas Seguras"),
+      comment: t("¡Increíble! Este generador de contraseñas es fácil de usar y ofrece opciones personalizables. Me siento más seguro con contraseñas fuertes para mis cuentas en línea; ¡altamente recomendado!"),
       photoUrl: "src/assets/media/Señora.jpg" // URL de la foto de Sofia Pedrozo
     },
     {
       name: "Ricardo Cardona",
-      product: "Azure database-driven coffee sales website",
-      comment: "Amazing shopping experience! Wide selection of quality coffee, easy navigation and delicious coffee - my favorite online coffee shopping destination!",
+      product: t("Sitio web de venta de café impulsado por base de datos Azure"),
+      comment: t("¡Experiencia de compra asombrosa! Amplia selección de café de calidad, navegación fácil y delicioso café; ¡mi destino favorito para comprar café en línea!"),
       photoUrl: "src/assets/media/Señor1.jpg" // URL de la foto de Ricardo Cardona
     },
     {
       name: "Miguelito Revelo",
-      product: "Movie API using Django REST Framework",
-      comment: "Excellent API! Easy to integrate, clear documentation and responsive support. A valuable tool for any app developer.",
+      product: t("API de Películas usando Django REST Framework"),
+      comment: t("¡Excelente API! Fácil de integrar, documentación clara y soporte receptivo. Una herramienta valiosa para cualquier desarrollador de aplicaciones."),
       photoUrl: "src/assets/media/Hombre.jpg" // URL de la foto de Miguelito Revelo
     }
   ];
@@ -384,8 +389,8 @@ function Experience() {
     <section className="experience p-40" id="experience" style={{ padding: '0.1rem', marginBottom: '2rem' }}>
       <div className="container">
         <div className="heading mb-24">
-          <h2 className="mb-16">Testimonials</h2>
-          <h5>“Testimonials from my top clients back up the quality of my best work.”</h5>
+          <h2 className="mb-16">{t("Testimonios")}</h2>
+          <h5>{t("“Los testimonios de mis mejores clientes respaldan la calidad de mi mejor trabajo.”")}</h5>
         </div>
         <div className="row">
           {testimonials.map((testimonial, index) => (
@@ -419,13 +424,14 @@ function Experience() {
 
 
 
-
 function Footer() {
+  const { t } = useTranslation(); // Hook de traducción
+
   return (
     <footer className="bg-gray-800 text-white py-8">
       <div className="container">
         <div className="content">
-          <h6>Portafolio David inguilan.</h6>
+          <h6>{t("Portfolio David Inguilán.")}</h6>
           <ul className="social-icons unstyled d-flex justify-content-center">
             <li><a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer"><img src="/src/assets/media/icons/Behance.png" alt="Behance" style={{backgroundColor: "#1769FF"}} /></a></li>
             <li><a href="https://dribbble.com/" target="_blank" rel="noopener noreferrer"><img src="/src/assets/media/icons/Dribbble.png" alt="Dribbble" style={{backgroundColor: "#EA4C89"}} /></a></li>
@@ -439,7 +445,6 @@ function Footer() {
     </footer>
   );
 }
-
 
 
 
